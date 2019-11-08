@@ -454,9 +454,11 @@ static int reconfig(struct vo *vo, struct mp_image_params *params)
     int win_w = vo->dwidth;
     int win_h = vo->dheight;
 
-    SDL_SetWindowSize(vc->window, win_w, win_h);
-    if (geo.flags & VO_WIN_FORCE_POS)
-        SDL_SetWindowPosition(vc->window, geo.win.x0, geo.win.y0);
+    if (vo->opts->autoresize) {
+        SDL_SetWindowSize(vc->window, win_w, win_h);
+        if (geo.flags & VO_WIN_FORCE_POS)
+            SDL_SetWindowPosition(vc->window, geo.win.x0, geo.win.y0);
+    }
 
     if (vc->tex)
         SDL_DestroyTexture(vc->tex);

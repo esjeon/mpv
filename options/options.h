@@ -14,6 +14,7 @@ typedef struct mp_vo_opts {
     int ontop;
     int ontop_level;
     int fullscreen;
+    int autoresize;
     int border;
     int fit_border;
     int all_workspaces;

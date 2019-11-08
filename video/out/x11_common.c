@@ -1611,7 +1611,7 @@ void vo_x11_config_vo_window(struct vo *vo)
     if (x11->window_hidden) {
         x11->nofsrc = rc;
         vo_x11_map_window(vo, rc);
-    } else if (reset_size) {
+    } else if (reset_size && vo->opts->autoresize) {
         vo_x11_highlevel_resize(vo, rc);
     }
 
